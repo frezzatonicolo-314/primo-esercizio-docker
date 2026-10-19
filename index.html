@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Webserver Dinamico con Docker</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; background-color: #f4f4f9; }
+        .box { background: white; padding: 20px; border-radius: 8px; display: inline-block; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        input { padding: 8px; margin: 10px; width: 200px; }
+        button { padding: 8px 15px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Benvenuto nel Webserver Dinamico!</h1>
+        <p>Inserisci il tuo nome per effettuare il login:</p>
+        
+        <!-- Form dinamico -->
+        <input type="text" id="username" placeholder="Il tuo nome...">
+        <br>
+        <button onclick="salutaUtente()">Accedi</button>
+        
+        <!-- Area dove apparirà il messaggio dinamico -->
+        <h3 id="messaggioBenvenuto" style="color: green; margin-top: 20px;"></h3>
+    </div>
+
+    <script>
+        function salutaUtente() {
+            const nome = document.getElementById('username').value;
+            const heading = document.getElementById('messaggioBenvenuto');
+            if (nome.trim() !== "") {
+                heading.innerText = "Benvenuto, " + nome + "! Accesso effettuato con successo.";
+            } else {
+                heading.style.color = "red";
+                heading.innerText = "Per favore, inserisci un nome valido.";
+            }
+        }
+    </script>
+</body>
+</html>
